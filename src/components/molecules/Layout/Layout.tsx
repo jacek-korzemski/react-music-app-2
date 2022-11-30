@@ -16,7 +16,7 @@ const Content = styled.div`
   padding: 20px;
   margin-right: 10px;
   margin-left: 10px;
-  max-height: calc(100vh - 50px);
+  max-height: calc(100vh - 67px);
   overflow-x: hidden;
   overflow-y: auto;
   ::-webkit-scrollbar {
@@ -34,6 +34,34 @@ const Content = styled.div`
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
+  @media (min-width: 776px) {
+    max-height: calc(100vh - 50px);
+  }
+`;
+
+const AlternativeLogo = styled.h1`
+  display: block;
+  font-size: 24px;
+  padding: 10px 0;
+  margin: 0;
+  color: white;
+  text-align: center;
+  font-size: 30px;
+  border-bottom: 1px solid white;
+  margin-bottom: 30px;
+  @media (min-width: 776px) {
+    display: none;
+  }
+`;
+
+const Footer = styled.div`
+  font-size: 14px;
+  font-weight: 100;
+  padding: 20px 0;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.9);
+  margin: 20px 0 -20px 0;
+  color: white;
 `;
 
 const Layout = () => {
@@ -41,7 +69,9 @@ const Layout = () => {
     <App>
       <Menu />
       <Content>
+        <AlternativeLogo>Metal Catalogue</AlternativeLogo>
         <Outlet />
+        <Footer>Copyright &copy; Angry Maya Jacek Korzemski 2022</Footer>
       </Content>
     </App>
   );
