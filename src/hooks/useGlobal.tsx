@@ -11,11 +11,11 @@ const GlobalContext = createContext<{
 
 const GlobalContextProvider = ({ children }: { children?: ReactNode }) => {
   // Global Variables
-  const env = import.meta.env.VITE_ENV;
-  const new_videos_api = import.meta.env.VITE_NEW_NIVEDOS_API;
-  const all_channels_api = import.meta.env.VITE_ALL_CHANNEL_API;
-  const single_channel_api = import.meta.env.VITE_ALL_CHANNEL_API;
-  const video_api = import.meta.env.VITE_VIDEO_API;
+  const env = import.meta.env.VITE_ENV || "dev";
+  const new_videos_api = import.meta.env.VITE_NEW_NIVEDOS_API || "missing";
+  const all_channels_api = import.meta.env.VITE_ALL_CHANNEL_API || "missing";
+  const single_channel_api = import.meta.env.VITE_ALL_CHANNEL_API || "missing";
+  const video_api = import.meta.env.VITE_VIDEO_API || "missing";
 
   // Global methods
   const getData = async (api: string) => {

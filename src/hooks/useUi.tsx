@@ -4,10 +4,10 @@ import { Snackbars, NewSnackbar } from "src/types/Ui";
 
 const UiContext = createContext<{
   snackbars: Snackbars;
-  addSnackbar?({ type, message }: NewSnackbar): void;
-  modal?: ReactNode;
-  setModal?(content: ReactNode): void;
-  closeModal?(): void;
+  addSnackbar({ type, message }: NewSnackbar): void;
+  modal: ReactNode;
+  setModal(content: ReactNode): void;
+  closeModal(): void;
 } | null>(null);
 
 const UiContextProvider = ({ children }: { children: ReactNode }) => {
