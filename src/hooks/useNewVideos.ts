@@ -5,11 +5,11 @@ const useNewVideos = () => {
   const { getData, new_videos_api } = useGlobal();
   const queryFn = () => getData(new_videos_api)
 
-  const { data, status } = useQuery('newVideos', queryFn);
+  const { data, status } = useQuery('getNewVideos', queryFn);
 
   return { 
     data, 
-    status
+    status,
   }
 }
 
