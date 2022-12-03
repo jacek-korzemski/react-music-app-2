@@ -13,22 +13,20 @@ const SnackbarWrapper = styled.div<{
 }>`
   padding: 15px;
   text-align: center;
-  background: ${({ type }) => {
-    if (type === "warning") {
-      return "orange";
-    }
-    if (type === "error") {
-      return "red";
-    }
-    if (type === "success") {
-      return "green";
-    }
-    return "blue";
-  }};
+  background: blue;
   color: white;
   border: 1px solid white;
   box-shadow: 1px 2px 3px black;
   position: relative;
+  .warning {
+    background: orange;
+  }
+  .error {
+    background: red;
+  }
+  .success {
+    background: green;
+  }
 `;
 
 const ProgressBar = styled.div`
@@ -50,7 +48,11 @@ const Snackbar = ({ type, message, closeHandler }: SnackbarType) => {
     }, 5000);
   }, []);
   return (
-    <SnackbarWrapper type={type}>
+    <SnackbarWrapper
+      type={type}
+      onClick={() => closeHandler()}
+      className={type}
+    >
       {message}
       <ProgressBar />
     </SnackbarWrapper>
