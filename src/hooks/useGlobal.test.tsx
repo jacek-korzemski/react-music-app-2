@@ -33,6 +33,7 @@ describe("useGlobal", () => {
       "http://mock.for.test/getChannelById"
     );
     expect(result.current.video_api).toBe("http://mock.for.test/getVideoById");
+    expect(result.current.backend).toBe("http://localhost:3001");
     expect(result.current.getData).toBeTruthy();
   });
 });

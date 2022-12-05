@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { Outlet } from "react-router-dom";
 import Menu from "src/components/molecules/Menu";
 import bg from "src/assets/bg.png";
+import useBackendHealth from "src/hooks/useBackendHealth";
+import useGlobal from "src/hooks/useGlobal";
 
 const App = styled.div`
   width: 100%;
@@ -64,11 +66,45 @@ const Footer = styled.div`
   color: white;
 `;
 
+const BackendWraning = styled.div`
+  width: 100%;
+  background: rgba(255, 100, 100, 1);
+  color: black;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 5px 20px 20px 20px;
+  text-align: center;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  span {
+    display: inline-block;
+    padding: 0 15px;
+    transform: translateY(6px);
+    font-size: 40px;
+  }
+`;
+
 const Layout = () => {
+  const { health, isLoading } = useBackendHealth();
+  const { isBackendOk, setIsBackendOk } = useGlobal();
+
+  if (health !== "ok" && !isLoading) {
+    setIsBackendOk(false);
+  }
+
   return (
     <App>
       <Menu />
       <Content>
+        {!isBackendOk && (
+          <BackendWraning>
+            <span>!</span>
+            Our backend is not responding ⚡ Most of features of out app will
+            probably not work. There is a chance, that I'm already working on
+            the problem.
+            <span>!</span>
+          </BackendWraning>
+        )}
         <AlternativeLogo>Metal Catalogue</AlternativeLogo>
         <Outlet />
         <Footer>Copyright &copy; Angry Maya Jacek Korzemski 2022</Footer>

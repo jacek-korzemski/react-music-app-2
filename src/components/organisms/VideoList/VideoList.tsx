@@ -2,6 +2,7 @@ import styled from "styled-components";
 import VideoTile from "src/components/molecules/VideoTile/VideoTile";
 import { Video } from "src/types/Video";
 import { Link } from "react-router-dom";
+import React from "react";
 
 const VideoListWrapper = styled.div`
   width: 100%;
@@ -61,8 +62,10 @@ const VideoList = ({ data, title }: { data: Video[]; title?: string }) => {
     <>
       {title && <Title>{title}</Title>}
       <VideoListWrapper>
-        {parsedData.map((elem) => (
-          <VideoTile data={elem} />
+        {parsedData.map((elem, index) => (
+          <React.Fragment key={index}>
+            <VideoTile data={elem} />
+          </React.Fragment>
         ))}
         <Bait to="channels">
           <p>Nothing interesing? Take a look at our channels list!</p>
