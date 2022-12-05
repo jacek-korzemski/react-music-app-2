@@ -24,3 +24,7 @@ dist-ssr
 *.sw?
 .env
 coverage
+
+# I'm pretty shure, this don't need to be uploaded to repo :O
+# maybe I'm wrong - I'll find out after first prod deploy
+/public/env.js
