@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import VideoTile from "src/components/molecules/VideoTile/VideoTile";
+import Title from "src/components/atoms/Title";
 import { Video } from "src/types/Video";
 import { Link } from "react-router-dom";
 import React from "react";
@@ -16,14 +17,6 @@ const VideoListWrapper = styled.div`
   @media (min-width: 1333px) {
     grid-template-columns: 1fr 1fr 1fr;
   }
-`;
-
-const Title = styled.h2`
-  color: white;
-  text-align: center;
-  font-size: 36px;
-  font-weight: 100;
-  margin-top: 0;
 `;
 
 const Bait = styled(Link)`
@@ -55,7 +48,15 @@ const Bait = styled(Link)`
   }
 `;
 
-const VideoList = ({ data, title }: { data: Video[]; title?: string }) => {
+const VideoList = ({
+  data,
+  title,
+  noBait,
+}: {
+  data: Video[];
+  title?: string;
+  noBait?: boolean;
+}) => {
   const parsedData = data.filter((elem) => !elem.hide && !elem.deleted);
 
   return (
@@ -67,9 +68,11 @@ const VideoList = ({ data, title }: { data: Video[]; title?: string }) => {
             <VideoTile data={elem} />
           </React.Fragment>
         ))}
-        <Bait to="channels">
-          <p>Nothing interesing? Take a look at our channels list!</p>
-        </Bait>
+        {!noBait && (
+          <Bait to="channels">
+            <p>Nothing interesing? Take a look at our channels list!</p>
+          </Bait>
+        )}
       </VideoListWrapper>
     </>
   );

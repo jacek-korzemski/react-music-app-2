@@ -87,7 +87,7 @@ const Menu = () => {
             </Link>
           </li>
           <li>
-            <Link to="elo">
+            <Link to="channels">
               <span>🤘</span>Channels
             </Link>
           </li>
