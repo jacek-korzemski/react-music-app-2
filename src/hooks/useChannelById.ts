@@ -1,7 +1,7 @@
 import { useQuery } from "react-query";
 import useGlobal from "src/hooks/useGlobal";
 
-const useChannelById = (id?: number) => {
+const useChannelById = (id?: string | number) => {
   const { getData, single_channel_api } = useGlobal();
   const queryFn = () => getData(`${single_channel_api}/${id}`);
 

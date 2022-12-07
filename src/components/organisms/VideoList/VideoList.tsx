@@ -1,9 +1,11 @@
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import VideoTile from "src/components/molecules/VideoTile/VideoTile";
 import Title from "src/components/atoms/Title";
 import { Video } from "src/types/Video";
 import { Link } from "react-router-dom";
 import React from "react";
+import Pagination from "src/components/molecules/Pagination";
 
 const VideoListWrapper = styled.div`
   width: 100%;
@@ -11,6 +13,7 @@ const VideoListWrapper = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: auto;
   gap: 10px;
+  margin-bottom: 25px;
   @media (min-width: 776px) {
     grid-template-columns: 1fr 1fr;
   }
@@ -52,16 +55,61 @@ const VideoList = ({
   data,
   title,
   noBait,
+  pagination,
 }: {
   data: Video[];
   title?: string;
   noBait?: boolean;
+  pagination?: boolean;
 }) => {
-  const parsedData = data.filter((elem) => !elem.hide && !elem.deleted);
+  const [currentPage, setCurrentPage] = useState(
+    location.hash ? parseInt(location.hash.replace("#", "")) - 1 : 0
+  );
+  const parsedData = data
+    .filter((elem) => !elem.hide && !elem.deleted)
+    .slice(currentPage * 30, currentPage * 30 + 30);
+
+  const niceScroll = () => {
+    document.getElementById("content")?.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
+
+  const nextPage = () => {
+    niceScroll();
+    setCurrentPage((prev) => prev + 1);
+  };
+
+  const prevPage = () => {
+    niceScroll();
+    setCurrentPage((prev) => prev - 1);
+  };
+
+  const goToPage = (number: number) => {
+    niceScroll();
+    setCurrentPage(number);
+  };
+
+  useEffect(() => {
+    location.hash = (currentPage + 1).toString();
+  }, [currentPage]);
 
   return (
     <>
-      {title && <Title>{title}</Title>}
+      {title && <Title id="top">{title}</Title>}
+      {pagination && (
+        <Pagination
+          nextPage={nextPage}
+          prevPage={prevPage}
+          goToPage={goToPage}
+          totalCount={data.length}
+          siblingCount={5}
+          currentPage={currentPage + 1}
+          pageSize={30}
+        />
+      )}
       <VideoListWrapper>
         {parsedData.map((elem, index) => (
           <React.Fragment key={index}>
@@ -74,6 +122,17 @@ const VideoList = ({
           </Bait>
         )}
       </VideoListWrapper>
+      {pagination && (
+        <Pagination
+          nextPage={nextPage}
+          prevPage={prevPage}
+          goToPage={goToPage}
+          totalCount={data.length}
+          siblingCount={5}
+          currentPage={currentPage + 1}
+          pageSize={30}
+        />
+      )}
     </>
   );
 };

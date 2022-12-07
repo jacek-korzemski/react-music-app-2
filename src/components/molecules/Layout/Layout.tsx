@@ -95,7 +95,7 @@ const Layout = () => {
   return (
     <App>
       <Menu />
-      <Content>
+      <Content id="content">
         {!isBackendOk && (
           <BackendWraning>
             <span>!</span>
