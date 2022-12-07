@@ -100,7 +100,7 @@ const Pagination = ({
 
   let lastPage = paginationRange && paginationRange[paginationRange.length - 1];
   return (
-    <PaginationWrapper>
+    <PaginationWrapper data-testid="pagination">
       <li
         className={`pagination-item ${currentPage === 1 ? "disabled" : ""}`}
         onClick={prevPage}

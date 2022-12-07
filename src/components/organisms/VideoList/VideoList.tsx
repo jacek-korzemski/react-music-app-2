@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import VideoTile from "src/components/molecules/VideoTile/VideoTile";
+import VideoTile from "src/components/molecules/VideoTile";
 import Title from "src/components/atoms/Title";
 import { Video } from "src/types/Video";
 import { Link } from "react-router-dom";
