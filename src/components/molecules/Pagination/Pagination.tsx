@@ -104,6 +104,7 @@ const Pagination = ({
       <li
         className={`pagination-item ${currentPage === 1 ? "disabled" : ""}`}
         onClick={prevPage}
+        data-testid="pagination-arrow-left"
       >
         <div className="arrow left" />
       </li>
@@ -119,6 +120,8 @@ const Pagination = ({
                 pageNumber === currentPage ? " selected" : ""
               }`}
               onClick={() => goToPage(parseInt(pageNumber as string) - 1)}
+              data-testid="pagination-go-to-page"
+              key={`page-${pageNumber}`}
             >
               {pageNumber}
             </li>
@@ -129,6 +132,7 @@ const Pagination = ({
           currentPage === lastPage ? "disabled" : ""
         }`}
         onClick={nextPage}
+        data-testid="pagination-arrow-right"
       >
         <div className="arrow right" />
       </li>

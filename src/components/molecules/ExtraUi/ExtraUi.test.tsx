@@ -1,7 +1,6 @@
 import { ReactNode } from "react";
 import { render, screen, act, getByTestId } from "@testing-library/react";
-import { UiContextProvider } from "src/hooks/useUi";
-import useUi from "src/hooks/useUi";
+import useUi, { UiContextProvider } from "src/hooks/useUi";
 import ExtraUi from "src/components/molecules/ExtraUi/ExtraUi";
 import { v4 as uuid } from "uuid";
 

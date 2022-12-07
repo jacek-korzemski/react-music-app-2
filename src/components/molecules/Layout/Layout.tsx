@@ -97,7 +97,7 @@ const Layout = () => {
       <Menu />
       <Content id="content">
         {!isBackendOk && (
-          <BackendWraning>
+          <BackendWraning data-testid="backend-warning">
             <span>!</span>
             Our backend is not responding ⚡ Most of features of out app will
             probably not work. There is a chance, that I'm already working on
