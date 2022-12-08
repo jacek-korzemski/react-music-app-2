@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import BaseContainer from "src/components/atoms/Container";
+import Button from "src/components/atoms/Button";
 
 const MenuWrapper = styled.div`
+  background: black;
   position: fixed;
   border-top: 1px solid white;
   bottom: 0;
@@ -15,21 +17,25 @@ const MenuWrapper = styled.div`
     list-style-type: none;
   }
   ul {
+    padding-top: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 25px;
   }
   @media (min-width: 776px) {
     position: relative;
     border-top: none;
     border-bottom: 1px solid white;
+    background: transparent;
   }
 `;
 
 const Container = styled(BaseContainer)`
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  max-width: 1333px;
   @media (min-width: 776px) {
     justify-content: space-between;
   }
@@ -49,8 +55,7 @@ const Logo = styled.h1`
 
 const Link = styled(NavLink)`
   display: block;
-  padding: 10px 10px 5px 10px;
-  margin-bottom: 5px;
+  padding: 0 10px 7px 10px;
   color: white !important;
   font-size: 20px;
   text-decoration: none;
@@ -82,24 +87,25 @@ const Menu = () => {
         <Logo>Metal Catalogue</Logo>
         <ul>
           <li>
-            <Link to="">
-              <span>👍</span>Newest
-            </Link>
+            <Link to="">Newest</Link>
           </li>
           <li>
-            <Link to="channels">
-              <span>🤘</span>Channels
-            </Link>
+            <Link to="channels">Channels</Link>
           </li>
           <li>
-            <Link to="search">
+            <Link to="about">About</Link>
+          </li>
+        </ul>
+        <ul style={{ padding: "10px 0" }}>
+          <li>
+            <Button>
               <span>🔍</span>Search
-            </Link>
+            </Button>
           </li>
           <li>
-            <Link to="about">
-              <span>📓</span>About
-            </Link>
+            <Button>
+              <span>🦆</span>Sign in
+            </Button>
           </li>
         </ul>
       </Container>

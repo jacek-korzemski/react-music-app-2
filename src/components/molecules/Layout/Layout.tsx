@@ -18,7 +18,7 @@ const Content = styled.div`
   padding: 20px;
   margin-right: 10px;
   margin-left: 10px;
-  max-height: calc(100vh - 67px);
+  max-height: calc(100vh - 98px);
   overflow-x: hidden;
   overflow-y: auto;
   ::-webkit-scrollbar {
