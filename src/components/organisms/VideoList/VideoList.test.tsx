@@ -79,5 +79,13 @@ describe("VideoList", () => {
     expect(container.querySelectorAll(".title")[0].innerHTML).toBe(
       hugeData[30].title
     );
+
+    act(() => {
+      screen.getAllByTestId("pagination-arrow-left")[0].click();
+    });
+
+    expect(container.querySelectorAll(".title")[0].innerHTML).toBe(
+      hugeData[0].title
+    );
   });
 });
