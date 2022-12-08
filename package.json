@@ -4,13 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "precommit-msg": "echo 'Pre-commit checks...' && exit 0",
     "dev": "vite --port 3000 --host localhost --mode dev",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage"
   },
-  "pre-commit": [ "test" ],
+  "pre-commit": [ "precommit-msg", "test" ],
   "dependencies": {
     "react": "18.2.0",
     "react-dom": "18.2.0",
