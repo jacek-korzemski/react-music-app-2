@@ -7,7 +7,7 @@ const range = (start: number, end: number) => {
   return Array.from({ length }, (_, idx) => idx + start);
 };
 
-export const usePagination = ({
+const usePagination = ({
   totalCount,
   pageSize,
   siblingCount = 1,
@@ -63,3 +63,5 @@ export const usePagination = ({
 
   return paginationRange;
 };
+
+export default usePagination;

@@ -61,7 +61,10 @@ const Right = styled.div`
 
 const VideoTile = ({ data }: { data: Video }) => {
   return (
-    <VideTileWrapper to={`video/${data.id.toString()}`}>
+    <VideTileWrapper
+      to={`/video/${data.id.toString()}`}
+      data-testid={"video-tile"}
+    >
       <Left>
         <img src={data.high_thumbnail} alt={data.title} />
       </Left>

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { usePagination, DOTS } from "src/hooks/usePagination";
+import usePagination, { DOTS } from "src/hooks/usePagination";
 
 const PaginationWrapper = styled.ul`
   display: flex;
