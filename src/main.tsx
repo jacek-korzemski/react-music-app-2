@@ -7,6 +7,7 @@ import Layout from "src/components/molecules/Layout";
 import Home from "src/routes/Home";
 import Channels from "src/routes/Channels";
 import Channel from "src/routes/Channel";
+import Video from "src/routes/Video";
 
 import "src/assets/index.css";
 
@@ -19,6 +20,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
             <Route index element={<Home />} />
             <Route path="/channels" element={<Channels />} />
             <Route path="/channel/:id" element={<Channel />} />
+            <Route path="/video/:id" element={<Video />} />
           </Route>
         </Routes>
       </BrowserRouter>

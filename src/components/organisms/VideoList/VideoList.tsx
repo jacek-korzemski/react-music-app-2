@@ -56,18 +56,21 @@ const VideoList = ({
   title,
   noBait,
   pagination,
+  limit,
 }: {
   data: Video[];
   title?: string;
   noBait?: boolean;
   pagination?: boolean;
+  limit?: number;
 }) => {
   const [currentPage, setCurrentPage] = useState(
     location.hash ? parseInt(location.hash.replace("#", "")) - 1 : 0
   );
   const parsedData = data
     .filter((elem) => !elem.hide && !elem.deleted)
-    .slice(currentPage * 30, currentPage * 30 + 30);
+    .slice(currentPage * 30, currentPage * 30 + 30)
+    .slice(0, limit ? limit : 30);
 
   const niceScroll = () => {
     document.getElementById("content")?.scrollTo({
@@ -93,7 +96,9 @@ const VideoList = ({
   };
 
   useEffect(() => {
-    location.hash = (currentPage + 1).toString();
+    if (pagination) {
+      location.hash = (currentPage + 1).toString();
+    }
   }, [currentPage]);
 
   return (
@@ -117,7 +122,7 @@ const VideoList = ({
           </React.Fragment>
         ))}
         {!noBait && (
-          <Bait to="channels">
+          <Bait to="/channels">
             <p>Nothing interesing? Take a look at our channels list!</p>
           </Bait>
         )}

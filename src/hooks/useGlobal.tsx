@@ -14,6 +14,7 @@ const GlobalContext = createContext<{
   all_channels_api: string;
   single_channel_api: string;
   video_api: string;
+  random_from_channel_api: string;
   backend: string;
   isBackendOk: boolean;
   setIsBackendOk: Dispatch<SetStateAction<boolean>>;
@@ -28,6 +29,8 @@ const GlobalContextProvider = ({ children }: { children?: ReactNode }) => {
   const all_channels_api = import.meta.env.VITE_ALL_CHANNEL_API || null;
   const single_channel_api = import.meta.env.VITE_SINGLE_CHANNEL_API || null;
   const video_api = import.meta.env.VITE_VIDEO_API || null;
+  const random_from_channel_api =
+    import.meta.env.VITE_RANDOM_FROM_CHANNEL_API || null;
   const backend = import.meta.env.VITE_BACKEND || null;
 
   // Global methods
@@ -43,6 +46,7 @@ const GlobalContextProvider = ({ children }: { children?: ReactNode }) => {
       all_channels_api,
       single_channel_api,
       video_api,
+      random_from_channel_api,
       backend,
       isBackendOk,
       setIsBackendOk,
