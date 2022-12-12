@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import Loading from "src/components/atoms/Loading";
+import Loading from "src/components/Loading";
 import useAllChannels from "src/hooks/useAllChannels";
 import useChannelImage from "src/hooks/useChannelImage";
-import Title from "src/components/atoms/Title";
+import Title from "src/components/Title";
 import { NavLink } from "react-router-dom";
 
 const Wrapper = styled.ul`

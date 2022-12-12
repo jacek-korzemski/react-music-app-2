@@ -2,8 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import AppWrapper from "src/components/organisms/AppWrapper";
-import Layout from "src/components/molecules/Layout";
+import AppWrapper from "src/components/AppWrapper";
+import Layout from "src/components/Layout";
 import Home from "src/routes/Home";
 import Channels from "src/routes/Channels";
 import Channel from "src/routes/Channel";

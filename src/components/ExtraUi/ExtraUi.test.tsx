@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { render, screen, act, getByTestId } from "@testing-library/react";
 import useUi, { UiContextProvider } from "src/hooks/useUi";
-import ExtraUi from "src/components/molecules/ExtraUi/ExtraUi";
+import ExtraUi from "src/components/ExtraUi/ExtraUi";
 import { v4 as uuid } from "uuid";
 
 const controlString = uuid();

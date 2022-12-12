@@ -1,8 +1,8 @@
 import { useState } from "react";
 import styled from "styled-components";
-import Title from "src/components/atoms/Title";
+import Title from "src/components/Title";
 import { Video } from "src/types/Video";
-import Loading from "src/components/atoms/Loading";
+import Loading from "src/components/Loading";
 
 const IFrame = styled.iframe`
   width: 100%;

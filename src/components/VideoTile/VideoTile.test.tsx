@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import VideoTile from "src/components/molecules/VideoTile/VideoTile";
+import VideoTile from "src/components/VideoTile/VideoTile";
 import { v4 as uuid } from "uuid";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 

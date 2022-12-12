@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Outlet } from "react-router-dom";
-import Menu from "src/components/molecules/Menu";
+import Menu from "src/components/Menu";
 import bg from "src/assets/bg.png";
 import useBackendHealth from "src/hooks/useBackendHealth";
 import useGlobal from "src/hooks/useGlobal";

@@ -1,7 +1,3 @@
-// TODO: unit test
-// 1. Check if render properly
-// 2. Check if with globalcontext backend error, message is shown
-
 import { ReactNode } from "react";
 import { afterAll, afterEach, beforeAll } from "vitest";
 import { fetch } from "cross-fetch";
@@ -11,7 +7,8 @@ import { setupServer } from "msw/node";
 import { render, screen, act } from "@testing-library/react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import useGlobal, { GlobalContextProvider } from "src/hooks/useGlobal";
-import Layout from "src/components/molecules/Layout/Layout";
+import { UiContextProvider } from "src/hooks/useUi";
+import Layout from "src/components/Layout/Layout";
 
 let queryClient: QueryClient;
 global.fetch = fetch;
@@ -51,9 +48,11 @@ afterAll(() => {
 const Wrapper = ({ children }: { children: ReactNode }) => {
   return (
     <div data-testid="layout">
-      <QueryClientProvider client={queryClient}>
-        <GlobalContextProvider>{children}</GlobalContextProvider>
-      </QueryClientProvider>
+      <UiContextProvider>
+        <QueryClientProvider client={queryClient}>
+          <GlobalContextProvider>{children}</GlobalContextProvider>
+        </QueryClientProvider>
+      </UiContextProvider>
     </div>
   );
 };

@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import VideoTile from "src/components/molecules/VideoTile";
-import Title from "src/components/atoms/Title";
+import VideoTile from "src/components/VideoTile";
+import Title from "src/components/Title";
 import { Video } from "src/types/Video";
 import { Link } from "react-router-dom";
 import React from "react";
-import Pagination from "src/components/molecules/Pagination";
+import Pagination from "src/components/Pagination";
 
 const VideoListWrapper = styled.div`
   width: 100%;

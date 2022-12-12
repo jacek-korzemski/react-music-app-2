@@ -1,10 +1,10 @@
 import useVideoById from "src/hooks/useVideoById";
 import { useParams } from "react-router-dom";
-import Loading from "src/components/atoms/Loading";
-import VideoFull from "src/components/organisms/VideoFull";
-import VideoList from "src/components/organisms/VideoList";
+import Loading from "src/components/Loading";
+import VideoFull from "src/components/VideoFull";
+import VideoList from "src/components/VideoList";
 import useRandomFromChannel from "src/hooks/useRandomFromChannel";
-import Title from "src/components/atoms/Title";
+import Title from "src/components/Title";
 
 const Video = () => {
   const { id } = useParams();

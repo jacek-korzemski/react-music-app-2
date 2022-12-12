@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import BaseContainer from "src/components/atoms/Container";
-import Button from "src/components/atoms/Button";
+import BaseContainer from "src/components/Container";
+import Button from "src/components/Button";
+import Modal from "src/components/Modal";
+import useUi from "src/hooks/useUi";
+import Login from "src/components/Login";
 
 const MenuWrapper = styled.div`
   background: black;
@@ -81,6 +84,15 @@ const Link = styled(NavLink)`
 `;
 
 const Menu = () => {
+  const { setModal } = useUi();
+  const signupHandler = () => {
+    setModal(
+      <Modal title={"Sign in"}>
+        <Login />
+      </Modal>
+    );
+  };
+
   return (
     <MenuWrapper>
       <Container>
@@ -103,7 +115,7 @@ const Menu = () => {
             </Button>
           </li>
           <li>
-            <Button>
+            <Button onClick={signupHandler}>
               <span>🦆</span>Sign in
             </Button>
           </li>

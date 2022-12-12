@@ -1,7 +1,7 @@
 import { render, screen, act } from "@testing-library/react";
 import { v4 as uuid } from "uuid";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import VideoList from "src/components/organisms/VideoList";
+import VideoList from "src/components/VideoList";
 
 const title = uuid();
 

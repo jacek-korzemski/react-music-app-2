@@ -1,7 +1,7 @@
 import useChannelById from "src/hooks/useChannelById";
 import { useParams } from "react-router-dom";
-import Loading from "src/components/atoms/Loading";
-import VideoList from "src/components/organisms/VideoList";
+import Loading from "src/components/Loading";
+import VideoList from "src/components/VideoList";
 
 const Channel = () => {
   const { id } = useParams();

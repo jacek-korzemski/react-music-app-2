@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import useUi from "src/hooks/useUi";
-import Snackbar from "src/components/atoms/Snackbar";
+import Snackbar from "src/components/Snackbar";
 import React from "react";
 
 const ModalWrapper = styled.div`
