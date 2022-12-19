@@ -33,7 +33,6 @@ jobs:
     - name: 🔨 Build Project
       run: |
         npm install --legacy-peer-deps
-        npm run test
         npm run build
 
     - name: 📂 Sync files
