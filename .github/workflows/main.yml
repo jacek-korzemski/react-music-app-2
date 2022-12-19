@@ -22,10 +22,10 @@ jobs:
         npm run test
         npm run build
 
-      - name: 📂 Sync files
-        uses: SamKirkland/FTP-Deploy-Action@4.3.3
-        with:
-          server: wn14.webd.pl
-          username: github-automation@react.metalmusic.pl
-          password: ${{ secrets.FTP_PASSWORD }}
-          local_dir: 'dist/'
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.3.3
+      with:
+        server: wn14.webd.pl
+        username: github-automation@react.metalmusic.pl
+        password: ${{ secrets.FTP_PASSWORD }}
+        local_dir: 'dist/'
