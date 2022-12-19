@@ -2,6 +2,20 @@ on:
   push:
     branches: master
 
+env:
+  VITE_ENV: ${{ secrets.VITE_ENV }}
+  VITE_NEW_NIVEDOS_API: ${{ secrets.VITE_NEW_NIVEDOS_API }}
+  VITE_ALL_CHANNEL_API: ${{ secrets.VITE_ALL_CHANNEL_API }}
+  VITE_SINGLE_CHANNEL_API: ${{ secrets.VITE_SINGLE_CHANNEL_API }}
+  VITE_RANDOM_FROM_CHANNEL_API: ${{ secrets.VITE_RANDOM_FROM_CHANNEL_API }}
+  VITE_VIDEO_API: ${{ secrets.VITE_VIDEO_API }}
+  VITE_MONGO_API: ${{ secrets.VITE_MONGO_API }}
+  VITE_MONGO_NAME: ${{ secrets.VITE_MONGO_NAME }}
+  VITE_MONGO_KEY: ${{ secrets.VITE_MONGO_KEY }}
+  VITE_MONGO_LOGIN: ${{ secrets.VITE_MONGO_LOGIN }}
+  VITE_MONGO_PASSWORD: ${{ secrets.VITE_MONGO_PASSWORD }}
+  VITE_BACKEND: ${{ secrets.VITE_BACKEND }}
+
 name: 🚀 Deploy website on push
 jobs:
   web-deploy:
