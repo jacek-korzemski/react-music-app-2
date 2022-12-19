@@ -22,18 +22,18 @@ describe("useGlobal", () => {
     });
 
     expect(result.current).toBeTruthy();
-    expect(result.current.env).toBe("test");
+    expect(result.current.env).toBe(process.env.VITE_ENV);
     expect(result.current.all_channels_api).toBe(
-      "http://mock.for.test/getAllChannels"
+      process.env.VITE_ALL_CHANNEL_API
     );
     expect(result.current.new_videos_api).toBe(
-      "http://mock.for.test/getNewVideos"
+      process.env.VITE_NEW_NIVEDOS_API
     );
     expect(result.current.single_channel_api).toBe(
-      "http://mock.for.test/getChannelById"
+      process.env.VITE_SINGLE_CHANNEL_API
     );
-    expect(result.current.video_api).toBe("http://mock.for.test/getVideoById");
-    expect(result.current.backend).toBe("http://localhost:3001");
+    expect(result.current.video_api).toBe(process.env.VITE_VIDEO_API);
+    expect(result.current.backend).toBe(process.env.VITE_BACKEND);
     expect(result.current.getData).toBeTruthy();
   });
 });
