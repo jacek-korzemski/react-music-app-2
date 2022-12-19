@@ -28,4 +28,4 @@ jobs:
         server: wn14.webd.pl
         username: github-automation@react.metalmusic.pl
         password: ${{ secrets.FTP_PASSWORD }}
-        local_dir: 'dist/'
+        local-dir: 'dist/'
