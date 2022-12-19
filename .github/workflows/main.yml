@@ -1,4 +1,7 @@
-on: push
+on:
+  push:
+    branches: master
+
 name: 🚀 Deploy website on push
 jobs:
   web-deploy:
@@ -12,15 +15,12 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: '16'
-      
+
     - name: 🔨 Build Project
       run: |
         npm install
         npm run test
         npm run build
-    
-    - name: List output files
-      run: find build/ -print
 
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.3.3
