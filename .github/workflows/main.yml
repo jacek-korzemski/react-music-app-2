@@ -1,7 +1,4 @@
-on:
-  push:
-    branches: master
-    
+on: push
 name: 🚀 Deploy website on push
 jobs:
   web-deploy:
@@ -21,6 +18,9 @@ jobs:
         npm install
         npm run test
         npm run build
+    
+    - name: List output files
+      run: find build/ -print
 
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.3.3
@@ -28,3 +28,4 @@ jobs:
           server: wn14.webd.pl
           username: github-automation@react.metalmusic.pl
           password: ${{ secrets.FTP_PASSWORD }}
+          local_dir: 'dist/'
