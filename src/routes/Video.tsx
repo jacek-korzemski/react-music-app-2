@@ -5,6 +5,7 @@ import VideoFull from "src/components/VideoFull";
 import VideoList from "src/components/VideoList";
 import useRandomFromChannel from "src/hooks/useRandomFromChannel";
 import Title from "src/components/Title";
+import { useMemo } from "react";
 
 const Video = () => {
   const { id } = useParams();
@@ -14,26 +15,29 @@ const Video = () => {
     (parsedData && parsedData.channel_id) || null
   );
 
+  const cachedMutatedData = useMemo(() => {
+    if (randomStatus !== "success") return null;
+    return randomData;
+  }, [randomStatus]);
+
   return (
     <>
       {status === "loading" && <Loading />}
       {status === "success" && parsedData && (
         <>
           <VideoFull data={parsedData} />
-          {randomData && randomStatus === "success" && (
+          {cachedMutatedData && randomStatus === "success" && (
             <>
               <Title as="p" style={{ marginTop: "30px" }}>
                 Check also:
               </Title>
-              <VideoList data={randomData} limit={7} />
+              <VideoList data={cachedMutatedData} limit={7} />
             </>
           )}
         </>
       )}
     </>
   );
-
-  return <Loading />;
 };
 
 export default Video;

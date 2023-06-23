@@ -2,7 +2,6 @@ import { useQuery } from "react-query";
 import useGlobal from "src/hooks/useGlobal";
 
 const useRandomFromChannel = (id?: string) => {
-  console.log('id: ', id);
   const { getData, random_from_channel_api } = useGlobal();
   const queryFn = () => getData(`${random_from_channel_api}/${id}`);
 
